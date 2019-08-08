@@ -1,7 +1,18 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@model  List<string>
 
-<p>Use this area to provide additional information.</p>
+<table>
+    <tr>
+        <th>
+            Room Info
+        </th>
+    </tr>
+
+    @foreach (string roomName in Model)
+    {
+        <tr>
+            <td>
+                @roomName
+            </td>
+        </tr>
+    }
+</table>

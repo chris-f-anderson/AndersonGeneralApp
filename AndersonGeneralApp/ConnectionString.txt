@@ -1,0 +1,1 @@
+﻿Server=localhost;Database=andersongeneral;Uid=root;Pwd=password;

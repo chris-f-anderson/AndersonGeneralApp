@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AndersonGeneralApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using AndersonGeneralApp.Models;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace AndersonGeneralApp.Controllers
 {
@@ -17,9 +14,10 @@ namespace AndersonGeneralApp.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            RoomRepository repo = new RoomRepository();
+            List<string> room = repo.GetAllClasses();
+            
+            return View(room);
         }
 
         public IActionResult Contact()

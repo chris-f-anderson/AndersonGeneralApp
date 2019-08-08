@@ -1,5 +1,3 @@
-using System;
-
 namespace AndersonGeneralApp.Models
 {
     public class ErrorViewModel
