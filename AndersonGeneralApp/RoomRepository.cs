@@ -1,6 +1,8 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using AndersonGeneralApp.Models;
+
 namespace AndersonGeneralApp
 {
     public class RoomRepository
@@ -32,7 +34,7 @@ namespace AndersonGeneralApp
             cmd.CommandText = "INSERT INTO room (id, number) " +
                                "VALUES (@id, @number)";
             cmd.Parameters.AddWithValue("id", newRoom.Id);
-            cmd.Parameters.AddWithValue("number", newRoom.number);
+            cmd.Parameters.AddWithValue("number", newRoom.Number);
 
             using (conn)
             {
@@ -84,7 +86,7 @@ namespace AndersonGeneralApp
             {
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                List<Room> room = new List<Room>();
+                List<Room> rooms = new List<Room>();
 
                 if (reader.Read())
                 {
@@ -92,8 +94,8 @@ namespace AndersonGeneralApp
 
                     room.Id = reader.GetInt32("id");
                     room.Number = reader.GetInt32("number");
-                    room.Is_occupied = reader.GetInt32("is_occupied");
-                    room.Is_cleaned = reader.GetInt32("is_cleaned");
+                    room.Is_occupied = reader.GetBoolean("is_occupied");
+                    room.Is_cleaned = reader.GetBoolean("is_cleaned");
 
                     return room;
                 }
