@@ -7,7 +7,7 @@ namespace AndersonGeneralApp
 {
     public class RoomRepository
     {
-        public List<string> GetAllClasses()
+        public List<Room> GetAllRooms()
         {
             MySqlConnection conn = new MySqlConnection(System.IO.File.ReadAllText("ConnectionString.txt"));
             MySqlCommand cmd = conn.CreateCommand();
