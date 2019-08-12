@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using AndersonGeneralApp.Models;
+using System.Threading.Tasks;
 
 namespace AndersonGeneralApp
 {
@@ -19,18 +20,19 @@ namespace AndersonGeneralApp
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                List<Room> results = new List<Room>();
+                List<Room> rooms = new List<Room>();
                 while (reader.Read())
                 {
-                    Room.nextRoom = new Room();
+                    Room currentRoom = new Room();
 
-                    nextRoom.Id = reader.GetInt32("number");
+                    currentRoom.Id = reader.GetInt32("id");
+                    currentRoom.Number = reader.GetInt32("number");
 
-                    rooms.Add(nextRoom);
+                    rooms.Add(currentRoom);
 
 
                 }
-                return results;
+                return rooms;
             }
         }
         public void AddRoomToDatabase(Room newRoom)

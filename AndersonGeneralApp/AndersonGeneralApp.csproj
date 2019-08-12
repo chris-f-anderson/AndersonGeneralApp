@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Room\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="ConnectionString.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
