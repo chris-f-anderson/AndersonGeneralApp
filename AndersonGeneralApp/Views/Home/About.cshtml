@@ -1,17 +1,27 @@
-﻿@model  List<string>
+﻿@model  List<Room>
 
 <table>
     <tr>
         <th>
             Room Info
         </th>
+        <th>
+            Is Room Occupied
+        </th>
+        <th>
+            Is Room Cleaned
+        </th>
     </tr>
 
-    @foreach (string roomName in Model)
+    @foreach (Room room in Model)
     {
         <tr>
             <td>
-                @roomName
+                @room.Number
+            </td>
+            <td>@room.Is_occupied
+            </td>
+            <td>@room.Is_cleaned
             </td>
         </tr>
     }

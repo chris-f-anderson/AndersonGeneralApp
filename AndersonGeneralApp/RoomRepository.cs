@@ -12,7 +12,7 @@ namespace AndersonGeneralApp
         {
             MySqlConnection conn = new MySqlConnection(System.IO.File.ReadAllText("ConnectionString.txt"));
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT number FROM room;";
+            cmd.CommandText = "SELECT id, number FROM room;";
 
             using (conn)
             {
