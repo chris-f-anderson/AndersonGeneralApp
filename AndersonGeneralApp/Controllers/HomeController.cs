@@ -23,6 +23,20 @@ namespace AndersonGeneralApp.Controllers
             
             return View(room);
         }
+        public IActionResult AvailableRooms()
+        {
+            RoomRepository repo = new RoomRepository();
+            List<Room> room = repo.GetAvailableRooms();
+
+            return View(room);
+        }
+        public IActionResult DirtyRooms()
+        {
+            RoomRepository repo = new RoomRepository();
+            List<Room> room = repo.GetDirtyRooms();
+
+            return View(room);
+        }
 
         public IActionResult Contact()
         {

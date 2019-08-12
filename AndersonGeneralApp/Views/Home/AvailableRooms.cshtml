@@ -1,0 +1,32 @@
+﻿@model List<Room>
+
+<table>
+    <col width="130" />
+
+    <tr>
+        <th>
+            Room #
+        </th>
+        <th>
+            Occupied?
+        </th>
+        <th>
+            Cleaned?
+        </th>
+    </tr>
+
+    @foreach (Room room in Model)
+    {
+        <tr>
+            <td>
+                @room.Number
+        </td>
+        <td>
+            @room.Is_occupied
+    </td>
+    <td>
+        @room.Is_cleaned
+</td>
+</tr>
+}
+</table>
