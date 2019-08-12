@@ -3,21 +3,20 @@
 <table>
     <tr>
         <th>
-            Room Info
+            Room #
         </th>
         <th>
-            Is Room Occupied
+            Occupied?
         </th>
         <th>
-            Is Room Cleaned
+            Cleaned?
         </th>
     </tr>
 
     @foreach (Room room in Model)
     {
         <tr>
-            <td>
-                @room.Number
+            <td>@room.Number
             </td>
             <td>@room.Is_occupied
             </td>

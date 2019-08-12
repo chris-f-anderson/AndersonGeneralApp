@@ -12,7 +12,7 @@ namespace AndersonGeneralApp
         {
             MySqlConnection conn = new MySqlConnection(System.IO.File.ReadAllText("ConnectionString.txt"));
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT id, number FROM room;";
+            cmd.CommandText = "SELECT id, number, is_occupied, is_cleaned FROM room;";
 
             using (conn)
             {
@@ -27,6 +27,8 @@ namespace AndersonGeneralApp
 
                     currentRoom.Id = reader.GetInt32("id");
                     currentRoom.Number = reader.GetInt32("number");
+                    currentRoom.Is_occupied = reader.GetBoolean("is_occupied");
+                    currentRoom.Is_cleaned = reader.GetBoolean("is_cleaned");
 
                     rooms.Add(currentRoom);
 
