@@ -16,11 +16,19 @@ namespace AndersonGeneralApp
             using (conn)
             {
                 conn.Open();
+
                 MySqlDataReader reader = cmd.ExecuteReader();
-                List<string> results = new List<string>();
+
+                List<Room> results = new List<Room>();
                 while (reader.Read())
                 {
-                    results.Add(reader.GetString("number"));
+                    Room.nextRoom = new Room();
+
+                    nextRoom.Id = reader.GetInt32("number");
+
+                    rooms.Add(nextRoom);
+
+
                 }
                 return results;
             }

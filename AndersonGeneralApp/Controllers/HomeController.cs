@@ -19,7 +19,7 @@ namespace AndersonGeneralApp.Controllers
         public IActionResult About()
         {
             RoomRepository repo = new RoomRepository();
-            List<string> room = repo.GetAllClasses();
+            List<string> room = repo.GetAllRooms();
             
             return View(room);
         }
