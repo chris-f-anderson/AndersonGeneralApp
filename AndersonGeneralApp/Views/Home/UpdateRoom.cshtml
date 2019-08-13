@@ -1,10 +1,8 @@
-﻿@model  List<Room>
-<a href="/home/availablerooms">See Available Rooms</a>
-<a href="/home/dirtyrooms">See Dirty Rooms</a>
-<a href="/room/updateroom">Update Room</a>
+﻿@model List<Room>
+
 <table>
-    <col width="130" />
-   
+    
+
     <tr>
         <th>
             Room #
@@ -20,11 +18,14 @@
     @foreach (Room room in Model)
     {
         <tr>
-            <td>@room.Number
+            <td>
+                @room.Number
             </td>
-            <td>@room.Is_occupied
+            <td>
+                @room.Is_occupied
             </td>
-            <td>@room.Is_cleaned
+            <td>
+                @room.Is_cleaned
             </td>
         </tr>
     }

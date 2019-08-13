@@ -37,6 +37,13 @@ namespace AndersonGeneralApp.Controllers
 
             return View(room);
         }
+        public IActionResult UpdateRoom(Room RoomToUpdate)
+        {
+            RoomRepository repo = new RoomRepository();
+            repo.UpdateRoom(RoomToUpdate);
+
+            return View();
+        }
 
         public IActionResult Contact()
         {

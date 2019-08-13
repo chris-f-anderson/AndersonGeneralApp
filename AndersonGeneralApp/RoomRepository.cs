@@ -93,6 +93,39 @@ namespace AndersonGeneralApp
             }
             
         }
+        //public void InsertRoom(Room roomtoInsert)
+        //{
+        //    MySqlConnection conn = new MySqlConnection(connectionString);
+
+        //    MySqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandText = "INSERT INTO room (number, is_occupied, is_cleande) VALUES (@number, @is_occupied, @is_cleaned)";
+        //    cmd.Parameters.AddWithValue("name", productToInsert.Number);
+        //    cmd.Parameters.AddWithValue("name", productToInsert.Is_occupied);
+        //    cmd.Parameters.AddWithValue("name", productToInsert.Is_cleanded);
+
+        //    using (conn)
+        //    {
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
+        //    }
+
+        //}
+        //public void UpdateRoom(Room roomtoUpdate)
+        //{
+        //    MySqlConnection conn = new MySqlConnection(connectionString);
+
+        //    MySqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandText = "UPDATE room (number, is_occupied, is_cleande) VALUES (@number, @is_occupied, @is_cleaned)";
+        //    cmd.Parameters.AddWithValue("name", productToInsert.Number);
+        //    cmd.Parameters.AddWithValue("name", productToInsert.Is_occupied);
+        //    cmd.Parameters.AddWithValue("name", productToInsert.Is_cleanded);
+
+        //    using (conn)
+        //    {
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //}
         public void AddRoomToDatabase(Room newRoom)
         {
             MySqlConnection conn = new MySqlConnection();
@@ -129,8 +162,10 @@ namespace AndersonGeneralApp
         {
             MySqlConnection conn = new MySqlConnection();
             conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
-
             MySqlCommand cmd = conn.CreateCommand();
+            
+
+           
             cmd.CommandText = "UPDATE room " +
                                 "SET Number = @number, Is_occupied = @is_occupied " +
                                 "SET Number = @number, Is_cleaned = @is_cleaned " +
@@ -138,6 +173,12 @@ namespace AndersonGeneralApp
             cmd.Parameters.AddWithValue("number", room.Number);
             cmd.Parameters.AddWithValue("is_occupied", room.Is_occupied);
             cmd.Parameters.AddWithValue("is_cleaned", room.Is_cleaned);
+            
+            using (conn)
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
         public Room GetRoom(int id)
         {
