@@ -193,6 +193,7 @@ namespace AndersonGeneralApp
 
             using (conn)
             {
+                conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 List<Room> rooms = new List<Room>();

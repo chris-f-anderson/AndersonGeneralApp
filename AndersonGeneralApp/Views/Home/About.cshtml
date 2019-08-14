@@ -20,7 +20,7 @@
     @foreach (Room room in Model)
     {
         <tr>
-            <td>@room.Number
+            <td><a href="/Room/ViewRoom/@room.Id">@room.Number</a>
             </td>
             <td>@room.Is_occupied
             </td>
