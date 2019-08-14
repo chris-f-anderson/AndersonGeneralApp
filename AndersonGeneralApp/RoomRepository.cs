@@ -168,11 +168,12 @@ namespace AndersonGeneralApp
            
             cmd.CommandText = "UPDATE room " +
                                 "SET Number = @number, Is_occupied = @is_occupied " +
-                                "SET Number = @number, Is_cleaned = @is_cleaned " +
+                                ", Is_cleaned = @is_cleaned " +
                                 "WHERE id = @id;";
             cmd.Parameters.AddWithValue("number", room.Number);
             cmd.Parameters.AddWithValue("is_occupied", room.Is_occupied);
             cmd.Parameters.AddWithValue("is_cleaned", room.Is_cleaned);
+            cmd.Parameters.AddWithValue("id", room.Id);
             
             using (conn)
             {
