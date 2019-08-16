@@ -9,7 +9,7 @@
     <input asp-for="Id" type="hidden" value="@Model.Id" />
     <label asp-for="Number" class="control-label">Number</label>
     <br />
-    <input type="text" name="Number" class="form-control" value="@Model.Number" />
+    <input type="text" name="Number" class="form-control:focus" value="@Model.Number" />
     <br />
     @Html.CheckBoxFor(x => Model.Is_occupied)
     <label asp-for="Is_occupied" class="control-label">Is Occupied</label>
